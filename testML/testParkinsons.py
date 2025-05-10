@@ -50,7 +50,7 @@ print('Mean MAE: %.3f (%.3f)' % (scores.mean(), scores.std()) )
 #fit the model to the data
 model.fit(X, y)
 
-#test it
+#test it, this row should result in 0 as the answer
 data = [214.289,260.277,77.973,0.00567,0.00003,0.00295,0.00317,0.00885,0.01884,0.19,0.01026,0.01161,0.01373,0.03078,0.04398,21.209,0.462803,0.664357,-5.724056,0.190667,2.555477,0.148569]
 data = asarray([data])
 print(model.predict(data))
