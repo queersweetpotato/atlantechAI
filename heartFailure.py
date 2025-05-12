@@ -7,6 +7,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RepeatedKFold
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import *
 
 #fetch dataset and split it into training and label data
 data = fetch_openml(data_id=45949)
@@ -20,9 +21,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 
 #define model
-#model = XGBRFRegressor(eval_metric='mean_absolute_error')
+#model = XGBRFRegressor(eval_metric='rmsle')
 #model = XGBRFRegressor()
-model = XGBRFRegressor(learning_rate= 0.7, max_depth= 12, n_estimators= 50)
+model = XGBRFRegressor(eval_metric='rmsle', learning_rate= 0.7, max_depth= 12, n_estimators= 50)
 
 #find the best hyper parameters
 
