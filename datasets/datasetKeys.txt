@@ -1,0 +1,22 @@
+Translation of values
+
+heart_2022_with_nans:
+
+Male=1, Female = 0
+last checkup <12 months ago = 1, <24 months = 2, <5 years = 5
+No=0, Yes=1
+Never smoked = 0, current smoker (some days) = 1, current smoker (every day) = 1.5, former smoker = 0.5
+E-cigarettes: never = 0, former = 0.5, some days = Use them some days = 0.75, every day = 1
+White = 0, hispanic = 1, black = 2, multi racial = 3, other 4
+
+Covid: home test = 1
+
+Age: >=80 -> 80
+55-59 -> 55
+40 to 44 -> 40
+75 to 74 -> 75
+18-24 -> 18
+Follows this pattern
+
+0, pre-diabetes or borderline diabetes = 0.5
+1, but only during pregnancy (female) = 1.5
