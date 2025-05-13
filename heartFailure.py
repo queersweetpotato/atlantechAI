@@ -56,3 +56,6 @@ model.fit(X_train, y_train)
 preds = model.predict(X_test)
 print(preds)
 print(y_test)
+
+#save the model for future use
+model.save_model("heartFailure.ubj")
