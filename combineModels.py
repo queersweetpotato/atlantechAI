@@ -6,8 +6,8 @@ heartModel.load_model("heartEvent.ubj");
 deathModel = XGBRFRegressor()
 deathModel.load_model("death.ubj");
 
-#idk exactly how the data is getting here, but it should ideally be in the form of a list
-ogData = [80, None, None,1, None, None,None,None,None,0,0,None,0,0,0,0,0,0,0,0,0,1.8,84.82,26.08,0,0,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,1,0,7,0,1,0,0,0,0,0,0]
+#idk exactly how the data is getting here, but it should ideally be in the form of a list, here is just placeholder data
+ogData = [80,None,None,1,None,None,None,None,None,0,0,None,0,0,0.5,0,0,None,None,None,0,None,None,None,None,None,None,None,None,None,None,None,None,1,0,8,0,0,0,0,0,0]
 data = asarray([ogData])
 print("The chance of heart problems is: ", heartModel.predict(data))
 
