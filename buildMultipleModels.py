@@ -21,8 +21,10 @@ from numpy import asarray
 #read in data (for predicting Heart Event), separate into training (X) and target (y) data
 df = read_csv("datasets/trimmedDataNoHeader.csv", header=None)
 data = df.values
-X_train, y_train = data[:, 1:], data[:, 0]
+X_train, y_train = data[:, 0:-1], data[:, -1]
 #X_train, X_test, y_train, y_test = train_test_split(X, y)
+print(X_train)
+print(y_train)
 
 #fetch dataset (death in case of Heart Event) and split it into training and label data
 data2 = fetch_openml(data_id=45949)
@@ -71,7 +73,7 @@ print('Mean MAE (death): %.3f (%.3f)' % (scores2.mean(), scores2.std()) )
 """
 
 #train the models
-heartModel.fit(X_train, y_train)
+heartModel.fit(X_train, y_train) #he is throwing errors :(( there are empty fields in y_train (the target data)
 deathModel.fit(X_train2, y_train2)
 
 #predict
