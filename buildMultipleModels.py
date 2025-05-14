@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
 #imports for model validation
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import RepeatedKFold
@@ -17,14 +23,25 @@ from sklearn.metrics import * #I still don't fully understand how the metrics wo
 #import for converting data for testing
 from numpy import asarray
 
+#for NaN stuff
+import math
+
 
 #read in data (for predicting Heart Event), separate into training (X) and target (y) data
 df = read_csv("datasets/trimmedDataNoHeader.csv", header=None)
 data = df.values
 X_train, y_train = data[:, 0:-1], data[:, -1]
 #X_train, X_test, y_train, y_test = train_test_split(X, y)
-print(X_train)
+#print(X_train)
+print("ytrain")
 print(y_train)
+
+#removes NaN from y_train
+count = 0
+for i in y_train:
+  if math.isnan(i):
+    y_train[count] = 0
+  count += 1
 
 #fetch dataset (death in case of Heart Event) and split it into training and label data
 data2 = fetch_openml(data_id=45949)
@@ -84,4 +101,10 @@ print(y_test)
 #preds = heartModel.predict(X_test2)
 #print(preds)
 #print(y_test2)
+
+
+# In[ ]:
+
+
+
 
