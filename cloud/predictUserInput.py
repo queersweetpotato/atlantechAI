@@ -22,4 +22,4 @@ def predictUserHealth(data):
   
   return returnValues
 
-#print(predictUserHealth([80,None,None,1,None,None,None,None,None,0,0,None,0,0,0.5,0,0,None,None,None,0,None,None,None,None,None,None,None,None,None,None,None,None,1,0,8,0,0,0,0,0,0]))
+print(predictUserHealth([80,None,None,1,None,None,None,None,None,0,0,None,0,0,0.5,0,0,None,None,None,0,None,None,None,None,None,None,None,None,None,1,0,8,0,0,0,0,0]))
