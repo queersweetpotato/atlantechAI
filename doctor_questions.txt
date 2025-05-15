@@ -187,9 +187,8 @@ each section looks like:
   },
   {
     id: 'sleepTime',
-    type: 'multiple',
+    type: 'text',
     label: 'How many hours of sleep do you get a night, on average?',
-    options: ['less than 4', '4-6', '6-8', 'More than 8']
   },
   {
     id: 'angina',
