@@ -14,7 +14,7 @@ each section looks like:
     id: 'anemia',
     type: 'multiple',
     label: 'Are you currently or have you in the past year been anemic?',
-    options: ['Yes', 'No']
+    options: ['Yes', 'No'] //maps to 1,0
   }
   { 
     id: 'creatine',
@@ -25,7 +25,7 @@ each section looks like:
     id: 'diabetes',
     type: 'multiple',
     label: 'Do you have or have you previously had diabtetes?',
-    options: ['No', 'Pre-diabetes', 'Yes, but only during pregnancy', 'Yes'] //when processed, maps to 0,0.5,1.5,1
+    options: ['No', 'Pre-diabetes', 'Yes, but only during pregnancy', 'Yes'] //when processed, maps to no=0, pre-diabetes=0.5, pregnancy=1.5, yes=1
   }
   { 
     id: 'ejectionFraction',
@@ -62,7 +62,7 @@ each section looks like:
     id: 'smoker',
     type: 'multiple',
     label: 'Are you currently or have you in the past year been a smoker?',
-    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to 1.5, 1, 0, 0.5
+    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to every day = 1.5, sometimes = 1, never = 0, former = 0.5
   },
   {
     id: 'deafOrHardOfHearing',
@@ -81,7 +81,7 @@ each section looks like:
     id: 'Esmoker',
     type: 'multiple',
     label: 'Do you currently or have you in the past year smoked e-cigarettes?',
-    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to 1, 0.75, 0, 0.5
+    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to every day = 1, sometimes = 0.75, never = 0, former = 0.5
   },
   { 
     id: 'chestScan',
@@ -93,7 +93,7 @@ each section looks like:
     id: 'raceEthnicity',
     type: 'multiple',
     label: 'What is your race/ethnicity?',
-    options: ['White', 'Hispanic', 'Black', 'Multiracial', 'Other'] //maps to 0,1,2,3,4
+    options: ['White', 'Hispanic', 'Black', 'Multiracial', 'Other'] //maps to white = 0, hispanic = 1, black = 2, multi = 3, other = 4
   }
   { 
     id: 'height',
@@ -177,7 +177,7 @@ each section looks like:
     id: 'last checkupTime',
     type: 'multiple',
     labels: 'When was your last checkup?'
-    options: ['Less than a year ago', 'Less than 2 years ago', 'less than 5 years ago', 'more than 5 years ago']//maps to 1,2,5,6
+    options: ['Less than a year ago', 'Less than 2 years ago', 'less than 5 years ago', 'more than 5 years ago']//maps to less than a year = 1, less than 2 = 2, less than 5 = 5, more than 5 = 6
   },
   { 
     id: 'physicalActive',
