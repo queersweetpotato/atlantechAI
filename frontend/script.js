@@ -1,6 +1,6 @@
 // Example questions – you can edit this array
 const questions = [
-/*  {
+  {
     id: 'age',
     type: 'text',
     label: 'How many years old are you?',
@@ -9,7 +9,8 @@ const questions = [
     id: 'anemia',
     type: 'multiple',
     label: 'Are you currently or have you in the past year been anemic?',
-    options: ['Yes', 'No']
+    options: ['Yes', 'No'], //maps to 1,0
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   { 
     id: 'creatine',
@@ -20,7 +21,8 @@ const questions = [
     id: 'diabetes',
     type: 'multiple',
     label: 'Do you have or have you previously had diabtetes?',
-    options: ['No', 'Pre-diabetes', 'Yes, but only during pregnancy', 'Yes'] //when processed, maps to 0,0.5,1.5,1
+    options: ['No', 'Pre-diabetes', 'Yes, but only during pregnancy', 'Yes'], //when processed, maps to no=0, pre-diabetes=0.5, pregnancy=1.5, yes=1
+    maps: {'No': 0.0, 'Pre-diabetes': 0.5, 'Yes, but only during pregnancy': 1.5, 'Yes': 1.0}
   },
   { 
     id: 'ejectionFraction',
@@ -30,8 +32,9 @@ const questions = [
   {
     id: 'highBloodPressure',
     type: 'multiple',
-    label: 'Do you have highg blood pressure?',
-    options: ['Yes', 'No']
+    label: 'Do you have high blood pressure?',
+    options: ['Yes', 'No'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   { 
     id: 'platelets',
@@ -52,43 +55,50 @@ const questions = [
     id: 'sex',
     type: 'multiple',
     label: 'What is your sex?',
-    options: ['Female','Male'] //maps to 0, 1
+    options: ['Female','Male'], //maps to 0, 1
+    maps: {'Male': 1.0, 'Female': 0.0}
   },
   {
     id: 'smoker',
     type: 'multiple',
     label: 'Are you currently or have you in the past year been a smoker?',
-    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to 1.5, 1, 0, 0.5
+    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'], //maps to every day = 1.5, sometimes = 1, never = 0, former = 0.5
+    maps: {'Yes, every day': 1.5, 'Yes, sometimes': 1.0, 'No, never': 0.0, 'No, former smoker': 0.5}
   },
   {
     id: 'deafOrHardOfHearing',
     type: 'multiple',
     label: 'Are you deaf or hard of hearing?',
-    options: ['Yes','No']
+    options: ['Yes','No'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'blindOrVisionProblems',
     type: 'multiple',
     label: 'Are you blind or visually impared?',
-    options: ['Yes','No']  
+    options: ['Yes','No'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'Esmoker',
     type: 'multiple',
     label: 'Do you currently or have you in the past year smoked e-cigarettes?',
-    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to 1, 0.75, 0, 0.5
+    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'], //maps to every day = 1, sometimes = 0.75, never = 0, former = 0.5
+    maps: {'Yes, every day': 1.0, 'Yes, sometimes': 0.75, 'No, never': 0.0, 'No, former smoker': 0.5}
   },
   { 
     id: 'chestScan',
     type: 'multiple',
     label: 'Have you had a chest scan in the past year?',
-    options: ['Yes', 'No']
+    options: ['Yes', 'No'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'raceEthnicity',
     type: 'multiple',
     label: 'What is your race/ethnicity?',
-    options: ['White', 'Hispanic', 'Black', 'Multiracial', 'Other'] //maps to 0,1,2,3,4
+    options: ['White', 'Hispanic', 'Black', 'Multiracial', 'Other'], //maps to white = 0, hispanic = 1, black = 2, multi = 3, other = 4
+    maps: {'White': 0, 'Hispanic': 1, 'Black': 2, 'Multiracial': 3, 'Other': 4}
   },
   { 
     id: 'height',
@@ -109,270 +119,125 @@ const questions = [
     id: 'alcohol',
     type: 'multiple',
     label: 'Do you drink?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'anxiety',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had anxiety?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'hormonalContraceptives',
     type: 'multiple',
     label: 'Do you currently or have you in the past year taken hormonal contraceptives?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'edema',
     type: 'multiple',
     label: 'Have you in the past year had an edema?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'hypothyroidism',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had hypothyroidism?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'ibs',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had IBS (irritable bowel disease)?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'obesity',
     type: 'multiple',
     label: 'Are you currently or have you in the past year been obese?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'opioids',
     type: 'multiple',
     label: 'Do you currently or have you in the past year used opioids?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'sepsis',
     type: 'multiple',
     label: 'Have you in the past year had sepsis?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'sleep apnea',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had sleep apnea?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'last checkupTime',
     type: 'multiple',
-    labels: 'When was your last checkup?',
-    options: ['Less than a year ago', 'Less than 2 years ago', 'less than 5 years ago', 'more than 5 years ago']//maps to 1,2,5,6
+    label: 'When was your last checkup?',
+    options: ['Less than a year ago', 'Less than 2 years ago', 'less than 5 years ago', 'more than 5 years ago'], //maps to less than a year = 1, less than 2 = 2, less than 5 = 5, more than 5 = 6
+    maps: {'Less than a year ago': 1.0, 'Less than 2 years ago': 2.0, 'less than 5 years ago': 5.0, 'more than 5 years ago': 6.0}
   },
   { 
     id: 'physicalActive',
     type: 'multiple',
     label: 'Are you physically active? (average 150min moderate activity per week)',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'sleepTime',
-    type: 'multiple',
+    type: 'text',
     label: 'How many hours of sleep do you get a night, on average?',
-    options: ['less than 4', '4-6', '6-8', 'More than 8']
   },
   {
     id: 'angina',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had angina (often described as squeezing, pressure, heaviness, tightness or pain in the chest)?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'asthma',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had asthma?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'copd',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had COPD (Chronic obstructive pulmonary disease)?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'depression',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had major depressive disorder?',
-    options: ['No', 'Yes']
+    options: ['No', 'Yes'],
+    maps: {'Yes': 1.0, 'No': 0.0}
   },
   {
     id: 'kidneyDisease',
     type: 'multiple',
     label: 'Do you currently or have you in the past year had kidney disease?',
-    options: ['No', 'Yes']
-  }*/
-  {
-    id: 'age',
-    type: 'text',
-    label: 'How many years old are you?',
-  },
-  {
-    id: 'anemia',
-    type: 'multiple',
-    label: 'Are you currently or have you in the past year been anemic?',
-    options: ['Yes', 'No'],
+    options: ['No', 'Yes'],
     maps: {'Yes': 1.0, 'No': 0.0}
-  },
-  {
-    id: 'diabetes',
-    type: 'multiple',
-    label: 'Do you have or have you previously had diabtetes?',
-    options: ['No', 'Pre-diabetes', 'Yes, but only during pregnancy', 'Yes'], //when processed, maps to 0,0.5,1.5,1
-    maps: {'No': 0.0, 'Pre-diabetes': 0.5, 'Yes, but only during pregnancy': 1.5, 'Yes': 1.0}
-  },
-  {
-    id: 'highBloodPressure',
-    type: 'multiple',
-    label: 'Do you have high blood pressure?',
-    options: ['Yes', 'No'],
-    maps: {'Yes': 1.0, 'No': 0.0}
-  },
-  {
-    id: 'sex',
-    type: 'multiple',
-    label: 'What is your sex?',
-    options: ['Female','Male'] //maps to 0, 1
-  },
-  {
-    id: 'smoker',
-    type: 'multiple',
-    label: 'Are you currently or have you in the past year been a smoker?',
-    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to 1.5, 1, 0, 0.5
-  },
-  {
-    id: 'Esmoker',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year smoked e-cigarettes?',
-    options: ['Yes, every day', 'Yes, sometimes', 'No, never', 'No, former smoker'] //maps to 1, 0.75, 0, 0.5
-  },
-  {
-    id: 'raceEthnicity',
-    type: 'multiple',
-    label: 'What is your race/ethnicity?',
-    options: ['White', 'Hispanic', 'Black', 'Multiracial', 'Other'] //maps to 0,1,2,3,4
-  },
-  { 
-    id: 'height',
-    type: 'text',
-    label: 'What is your height in meters?'
-  },
-  {
-    id: 'weight',
-    type: 'text',
-    label: 'What is your weight in kilograms?',
-  },
-  {
-    id: 'BMI',
-    type: 'text',
-    label: 'What is your BMI?'
-  },
-  {
-    id: 'alcohol',
-    type: 'multiple',
-    label: 'Do you drink?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'anxiety',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year taken medication to treat anxiety?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'hormonalContraceptives',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year taken hormonal contraceptives?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'hypothyroidism',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year had hypothyroidism? (underactive thyroid)',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'obesity',
-    type: 'multiple',
-    label: 'Are you currently or have you in the past year been obese?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'opioids',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year used opioids?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'sepsis',
-    type: 'multiple',
-    label: 'Have you in the past year had sepsis?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'sleep apnea',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year had sleep apnea?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'last checkupTime',
-    type: 'multiple',
-    labels: 'When was your last checkup?',
-    options: ['Less than a year ago', 'Less than 2 years ago', 'less than 5 years ago', 'more than 5 years ago']//maps to 1,2,5,6
-  },
-  { 
-    id: 'physicalActive',
-    type: 'multiple',
-    label: 'Are you physically active? (average of 150mins of moderate activity per week)',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'sleepTime',
-    type: 'multiple',
-    label: 'How many hours of sleep do you get a night, on average?',
-    options: ['less than 4', '4-6', '6-8', 'More than 8']
-  },
-  {
-    id: 'angina',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year had angina (often described as squeezing, pressure, heaviness, tightness or pain in the chest)?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'asthma',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year had asthma?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'copd',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year had COPD (Chronic obstructive pulmonary disease)?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'depression',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past yeartaken medication to treat major depressive disorder?',
-    options: ['No', 'Yes']
-  },
-  {
-    id: 'kidneyDisease',
-    type: 'multiple',
-    label: 'Do you currently or have you in the past year had kidney disease?',
-    options: ['No', 'Yes']
   }
 ];
 
@@ -424,26 +289,14 @@ function generateForm(questions) {
   });
 }
 
-// Your custom logic goes here
 function handleSubmit(data) {
   // Getting parameters by number and appending them to array
-  console.log(data);
   let param = {"p": ""};
-  console.log(questions.length, questions[0]);
-  for(let i = 0; i < 41; ++i) {
-    if(i >= questions.length) {
-      param["p"] += "None";
-    } else {
-      if(i == 11)
-	param["p"] += "None";
-      param["p"] += (data[questions[i].id] ? data[questions[i].id] : "None");
-    }
-    if(i < 40)
+  for(let i = 0; i < questions.length; ++i) {
+    param["p"] += (data[questions[i].id] ? data[questions[i].id] : "None");
+    if(i < (questions.length - 1))
 	param["p"] += ",";
   }
-
-  console.log(param);
-  return;
 
   // Creating query parameters
   const queryParams = new URLSearchParams(param).toString();
@@ -456,16 +309,17 @@ function handleSubmit(data) {
     return response.text();
   }).then(resultText => {
     console.log("Response from backend: ", resultText);
-    displayResult(resultText);
+    let numbers = resultText.match(/[0-9]\.[0-9]+/g);
+    displayResult(numbers[0], numbers[1]);
   }).catch(error => {
     console.log("Error trying to fetch from backend: ", error);
   });
-
-  console.log(param);
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
-function displayResult(text) {
+function displayResult(p1, p2) {
   let resultEl = document.getElementById('result');
+  // Creating result element if it doesn't exist
   if (!resultEl) {
     resultEl = document.createElement('div');
     resultEl.id = 'result';
@@ -477,7 +331,10 @@ function displayResult(text) {
     resultEl.style.backgroundColor = '#f9f9f9';
     document.getElementById("title").after(resultEl);
   }
-  resultEl.textContent = text;
+  // Adding the text to the result element
+  let text = "Probability of heart condition: " + Math.round(p1*10000) / 100.0 + "%<br>";
+  text += "Probability of death if heart condition present: " + Math.round(p2*10000) / 100.0 + "%";
+  resultEl.innerHTML = text;
 }
 
 // Initialize form
