@@ -5,7 +5,10 @@ import predictUserInput as nn
 def content(query):
     print("Running content generation function", str(query))
     if query.get("p"):
-        res = nn.predictUserHealth([(float(x) if x != "None" else None) for x in query.get("p")[0].split(",")])
+        params = query.get("p")[0].split(",")
+        params.insert(11, "None")
+        print("Using parameters", params)
+        res = nn.predictUserHealth([(float(x) if x != "None" else None) for x in params])
         print("Returning", res)
     else:
         print("No Query Parameter Found")
