@@ -27,7 +27,7 @@ const questions = [
   { 
     id: 'ejectionFraction',
     type: 'text',
-    label: 'What is your ejection fraction (percentage of blood leaving the heart at each contraction)? (Average value is 0.55-0.7)',
+    label: 'What is your ejection fraction (percentage of blood leaving the heart at each contraction)? (Average value is 55-70)',
   },
   {
     id: 'highBloodPressure',
