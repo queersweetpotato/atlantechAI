@@ -15,7 +15,7 @@ const questions = [
   { 
     id: 'creatine',
     type: 'text',
-    label: 'What are the patients creatine levels?',
+    label: 'What are the patients creatine levels? (Average value is 0.7-1.1)',
   },
   {
     id: 'diabetes',
@@ -27,7 +27,7 @@ const questions = [
   { 
     id: 'ejectionFraction',
     type: 'text',
-    label: 'What is your ejection fraction (percentage of blood leaving the heart at each contraction)?', 
+    label: 'What is your ejection fraction (percentage of blood leaving the heart at each contraction)? (Average value is 0.55-0.7)',
   },
   {
     id: 'highBloodPressure',
@@ -39,17 +39,17 @@ const questions = [
   { 
     id: 'platelets',
     type: 'text',
-    label: 'What are your platelet levels? (kiloplatelets/mL)',
+    label: 'What are your platelet levels? (kiloplatelets/mL) (Average value is 150-450)',
   },
   {
     id: 'serumCreatine',
     type: 'text',
-    label: 'What are your serum creatine levels? (mg/dL)',
+    label: 'What are your serum creatine levels? (mg/dL) (Average value is 0.7-1.1)',
   },
   {
     id: 'serumSodium',
     type: 'text',
-    label: 'What are your serum Sodium levels? (mEq/dL)',
+    label: 'What are your serum Sodium levels? (mEq/dL) (Average value is 13.5-14.5)',
   },
   {
     id: 'sex',
@@ -113,7 +113,7 @@ const questions = [
   {
     id: 'BMI',
     type: 'text',
-    label: 'What is your BMI?'
+    label: 'What is your BMI? (Calculators for this can be found online)'
   },
   {
     id: 'alcohol',
