@@ -125,7 +125,7 @@ const questions = [
   {
     id: 'anxiety',
     type: 'multiple',
-    label: 'Do you currently or have you in the past year had anxiety?',
+    label: 'Do you currently or have you in the past year used medication to treat anxiety?',
     options: ['No', 'Yes'],
     maps: {'Yes': 1.0, 'No': 0.0}
   },
@@ -228,7 +228,7 @@ const questions = [
   {
     id: 'depression',
     type: 'multiple',
-    label: 'Do you currently or have you in the past year had major depressive disorder?',
+    label: 'Do you currently or have you in the past year used medication to treat major depressive disorder?',
     options: ['No', 'Yes'],
     maps: {'Yes': 1.0, 'No': 0.0}
   },
